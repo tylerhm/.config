@@ -93,7 +93,7 @@ alt - l : yabai -m window --focus east
 # shift + cmd - h : yabai -m window --warp east
 
 # balance size of windows
-# shift + alt - 0 : yabai -m space --balance
+shift + alt - 0 : yabai -m space --balance
 
 # make floating window fill screen
 # shift + alt - up     : yabai -m window --grid 1:1:0:0:1:1
@@ -102,13 +102,13 @@ alt - l : yabai -m window --focus east
 # shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
 
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-shift + cmd + alt - n : yabai -m space --create && \
+shift + cmd - n : yabai -m space --create && \
                   index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
                   yabai -m window --space "${index}" && \
                   yabai -m space --focus "${index}"
 
 # create desktop, and follow focus - uses jq for parsing json (brew install jq)
-shift + cmd - n : yabai -m space --create && \
+shift + cmd + alt - n : yabai -m space --create && \
                   index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
                   yabai -m space --focus "${index}"
 
@@ -123,6 +123,9 @@ alt - 6 : yabai -m space --focus 6
 alt - 7 : yabai -m space --focus 7
 alt - 8 : yabai -m space --focus 8
 alt - 9 : yabai -m space --focus 9
+
+# kill current space
+alt - c : yabai -m space --destroy
 
 # send window to desktop and follow focus
 shift + cmd - z : yabai -m window --space next; yabai -m space --focus next

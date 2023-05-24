@@ -10,6 +10,7 @@ return {
       { import = "astrocommunity.pack.rust" },
       { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
     },
+    { "andweeb/presence.nvim", lazy = false, opts = {} },
   },
 
   colorscheme = "catppuccin-mocha",

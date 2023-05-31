@@ -1,6 +1,7 @@
 return {
   plugins = {
     {
+      -- Community
       "AstroNvim/astrocommunity",
       { import = "astrocommunity.colorscheme.catppuccin" },
       { import = "astrocommunity.bars-and-lines.heirline-vscode-winbar" },
@@ -9,7 +10,15 @@ return {
       { import = "astrocommunity.pack.typescript" },
       { import = "astrocommunity.pack.rust" },
       { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
+      {
+        "m4xshen/smartcolumn.nvim",
+        opts = {
+          colorcolumn = "120",
+        },
+      },
     },
+
+    -- Custom
     {
       "L3MON4D3/LuaSnip",
       config = function(plugin, opts)

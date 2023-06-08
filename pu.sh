@@ -1,24 +1,24 @@
 #!/bin/bash
 
-home=$(echo $HOME)
-files=$(find . | grep -Ev "^(\.|.*(\.git|pu\.sh).*)$")
+home=$(echo "$HOME")
 
 script=$(realpath "$0")
-dotsdir=$(dirname $script)
+dotsdir=$(dirname "$script")
 
-for file in $files; do
-	if [[ ! -d $file ]]; then
-		parentdir=$(dirname $file)
-		destdir="${home}/${parentdir}"
+# Iterate over all files that aren't .git/* or this script
+find . | grep -Ev "^(\.|.*(\.git|pu\.sh).*)$" | while read -r file; do
+    if [[ ! -d $file ]]; then
+        parentdir=$(dirname "$file")
+        destdir="${home}/${parentdir}"
 
-		if [[ ! -d $destdir ]]; then
-			echo "Initializing ${destdir}"
-			mkdir -p "${destdir}"
-		fi
+        if [[ ! -d $destdir ]]; then
+            echo "Initializing ${destdir}"
+            mkdir -p "$destdir"
+        fi
 
-		absfrom="${dotsdir}/${file}"
-		linktarg="${home}/${file}"
+        absfrom="${dotsdir}/${file}"
+        linktarg="${home}/${file}"
 
-		ln -sfv "${absfrom}" "${linktarg}"
-	fi
+        ln -sfv "$absfrom" "$linktarg"
+    fi
 done

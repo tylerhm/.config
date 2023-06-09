@@ -19,6 +19,9 @@ find . | grep -Ev "^(\.|.*(\.git|pu\.sh).*)$" | while read -r file; do
         absfrom="${dotsdir}/${file}"
         linktarg="${home}/${file}"
 
-        ln -sfv "$absfrom" "$linktarg"
+        filename=$(basename "$file")
+        echo "Linking ${filename}"
+
+        ln -sf "$absfrom" "$linktarg"
     fi
 done

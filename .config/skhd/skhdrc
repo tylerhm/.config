@@ -6,4 +6,5 @@ rcmd - e : open -a "/Applications/VS Code @ FB.app"
 rcmd - t : open -a "/Applications/iTerm.app"
 rcmd - b : open -a "/Applications/Google Chrome.app"
 rcmd - c : open -a "/Applications/Workplace Chat.app"
+rcmd - m : open -a "/Applications/Microsoft Outlook.app"
 rcmd - f : open ~/

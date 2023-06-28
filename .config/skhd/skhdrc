@@ -8,4 +8,5 @@ rcmd - b : open -a "/Applications/Google Chrome.app"
 rcmd - c : open -a "/Applications/Workplace Chat.app"
 rcmd - m : open -a "/Applications/Microsoft Outlook.app"
 rcmd - s : open -a "/Applications/Spotify.app"
-rcmd - f : open ~/
+rcmd - f : open -a "/Applications/Flipper.app"
+rcmd - h : open ~/

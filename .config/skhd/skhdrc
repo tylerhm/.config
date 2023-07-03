@@ -19,6 +19,11 @@ shift + cmd - n : yabai -m space --create && \
                   yabai -m window --space "${index}" && \
                   yabai -m space --focus "${index}"
 
+# create desktop, and follow focus - uses jq for parsing json (brew install jq)
+shift + cmd + alt - n : yabai -m space --create && \
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+                  yabai -m space --focus "${index}"
+
 # fast focus desktop
 alt - x : yabai -m space --focus recent
 alt - 1 : yabai -m space --focus 1
@@ -31,8 +36,8 @@ alt - 7 : yabai -m space --focus 7
 alt - 8 : yabai -m space --focus 8
 alt - 9 : yabai -m space --focus 9
 
-# kill current space
-alt - c : yabai -m space --destroy
+# kill all empty spaces except for focused
+alt - c : sh ~/.config/yabai/scripts/cleanEmptySpaces.sh
 
 # send window to desktop and follow focus
 shift + cmd - z : yabai -m window --space next; yabai -m space --focus next

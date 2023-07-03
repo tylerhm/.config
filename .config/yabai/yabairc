@@ -27,6 +27,4 @@ yabai -m config                                 \
     mouse_action2                resize         \
     mouse_drop_action            swap
 
-yabai -m signal --add event=space_changed action="sh ~/.config/yabai/scripts/cleanEmptySpaces.sh"
-
 echo "yabai configuration loaded.."

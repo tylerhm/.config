@@ -37,7 +37,8 @@ alt - 8 : yabai -m space --focus 8
 alt - 9 : yabai -m space --focus 9
 
 # kill all empty spaces except for focused
-alt - c : sh ~/.config/yabai/scripts/cleanEmptySpaces.sh
+alt - c : yabai -m space --destroy
+alt + shift - c : sh ~/.config/yabai/scripts/cleanEmptySpaces.sh
 
 # send window to desktop and follow focus
 shift + cmd - z : yabai -m window --space next; yabai -m space --focus next

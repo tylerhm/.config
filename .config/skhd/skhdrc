@@ -2,11 +2,11 @@
 alt - r : skhd --restart-service
 
 # app quick switcher
-rcmd - e : open -a "/Applications/VS Code @ FB.app"
-rcmd - t : open -a "/Applications/iTerm.app"
-rcmd - b : open -a "/Applications/Google Chrome.app"
-rcmd - c : open -a "/Applications/Workplace Chat.app"
-rcmd - m : open -a "/Applications/Microsoft Outlook.app"
-rcmd - s : open -a "/Applications/Spotify.app"
-rcmd - f : open -a "/Applications/Flipper.app"
-rcmd - h : open ~/
+ralt - e : open -a "/Applications/VS Code @ FB.app"
+ralt - t : open -a "/Applications/iTerm.app"
+ralt - b : open -a "/Applications/Google Chrome.app"
+ralt - c : open -a "/Applications/Workplace Chat.app"
+ralt - m : open -a "/Applications/Microsoft Outlook.app"
+ralt - s : open -a "/Applications/Spotify.app"
+ralt - f : open -a "/Applications/Flipper.app"
+ralt - h : open ~/

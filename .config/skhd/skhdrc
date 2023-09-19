@@ -4,7 +4,7 @@ alt - r : skhd --restart-service
 # app quick switcher
 ralt - e : open -a "/Applications/VS Code @ FB.app"
 ralt - t : open -a "/Applications/iTerm.app"
-ralt - b : open -a "/Applications/Safari.app"
+ralt - b : open -a "/Applications/Google Chrome.app"
 ralt - c : open -a "/Applications/Workplace Chat.app"
 ralt - m : open -a "/Applications/Microsoft Outlook.app"
 ralt - s : open -a "/Applications/Xcode_15.0.0_15A240d_fb.app/Contents/Developer/Applications/Simulator.app"

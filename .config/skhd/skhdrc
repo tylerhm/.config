@@ -7,6 +7,7 @@ ralt - t : open -a "/Applications/iTerm.app"
 ralt - b : open -a "/Applications/Google Chrome.app"
 ralt - c : open -a "/Applications/Workplace Chat.app"
 ralt - m : open -a "/Applications/Microsoft Outlook.app"
+ralt - w : open -a "/Applications/Notes.app"
 ralt - s : open -a "/Applications/Xcode_15.0.0_15A240d_fb.app/Contents/Developer/Applications/Simulator.app"
 ralt - f : open -a "/Applications/Flipper.app"
 ralt - h : open ~/

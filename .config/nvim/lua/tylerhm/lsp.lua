@@ -7,12 +7,14 @@ for _, lsp in ipairs {
   "lua_ls"
 } do
   require "lspconfig"[lsp].setup {
-    on_attach = on_attach,
+    on_attach = function()
+    end,
   }
 end
 
 require "null-ls".setup({
-  on_attach = on_attach,
+  on_attach = function()
+  end,
   sources = {
     meta.null_ls.diagnostics.arclint,
     meta.null_ls.formatting.arclint,

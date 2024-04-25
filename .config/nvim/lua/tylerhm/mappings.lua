@@ -83,3 +83,9 @@ if is_available "neo-tree.nvim" then
     { desc = "Toggle explorer focus" })
 end
 
+
+-- Linting
+map("n", "<leader>l", function()
+  vim.lsp.buf.format( { async = true } )
+  end,
+  { desc = "Format current buffer" })

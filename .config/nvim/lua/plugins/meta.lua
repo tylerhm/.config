@@ -1,6 +1,6 @@
 return {
   {
-    dir = "/Users/tylerhm/fbsource/fbcode/editor_support/nvim",
+    dir = "~/.config/nvim/meta",
     name = "meta.nvim"
   },
 }

@@ -1,12 +1,10 @@
 -- Meta LSP
-local meta = require "meta.nvim"
+local meta = require "meta"
 
 for _, lsp in ipairs {
-  "rust-analyzer@meta",
-  "pyls@meta",
-  "pyre@meta",
-  "thriftlsp@meta",
   "cppls@meta",
+  "buckls@meta",
+  "lua_ls"
 } do
   require "lspconfig"[lsp].setup {
     on_attach = on_attach,

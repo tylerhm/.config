@@ -2,7 +2,9 @@ for _, source in ipairs {
   "tylerhm.bootstrap",
 	"tylerhm.options",
 	"tylerhm.lazy",
+	"tylerhm.nvim-treesitter",
 	"tylerhm.meta",
+	"tylerhm.lsp",
 	"tylerhm.mappings",
 	"tylerhm.colors",
 } do

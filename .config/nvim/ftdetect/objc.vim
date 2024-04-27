@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.mm set filetype=objc
+au BufRead,BufNewFile *.mm,*.h,*.m set filetype=objc

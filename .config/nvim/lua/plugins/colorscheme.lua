@@ -1,1 +1,1 @@
-return {{ "arzg/vim-colors-xcode" }}
+return { "arzg/vim-colors-xcode" }

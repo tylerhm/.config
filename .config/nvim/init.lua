@@ -287,62 +287,9 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
-
-      local cwd_is_meta_repo = function()
-        local path = vim.fn.getcwd()
-        return (
-          string.find(path, "fbsource") or -- in FBSource dir/subdir
-          string.find(path, "fbobjc")      -- in FBObjc dir/subdir
-        )
-      end
-
-      local cwd_contains_eden = function()
-        local path = vim.fn.getcwd()
-        local _, depth = string.gsub(path, "/", "")
-        return (
-          cwd_is_meta_repo() or -- Eden repo
-          depth <= 2            -- in a shallow directory, w/ Eden repo enclosed
-        )
-      end
-
-      vim.keymap.set('n', '<leader>sf', function()
-        if cwd_contains_eden() then
-          if cwd_is_meta_repo() then
-            vim.cmd "Telescope myles"
-          else
-            print("Cannot Myles file search from non-eden path. Cannot local search due to nested Eden repo.")
-          end
-        else
-          builtin.find_files()
-        end
-      end, { desc = '[S]earch [F]iles' })
-
-      vim.keymap.set('n', '<leader>sw', function()
-        local word = vim.fn.expand "<cword>"
-        if cwd_contains_eden() then
-          if cwd_is_meta_repo() then
-            vim.cmd "Telescope biggrep r"
-          else
-            print("Cannot Biggrep from non-eden path. Cannot local grep due to nested Eden repo.")
-          end
-        else
-          require "telescope.builtin".grep_string {
-            search = word
-          }
-        end
-      end, { desc = '[S]earch current [W]ord' })
-
-      vim.keymap.set('n', '<leader>sg', function()
-        if cwd_contains_eden() then
-          if cwd_is_meta_repo() then
-            vim.cmd "Telescope biggrep r"
-          else
-            print("Cannot Biggrep from non-eden path. Cannot local grep due to nested Eden repo.")
-          end
-        else
-          require "telescope.builtin".live_grep()
-        end
-      end, { desc = '[S]earch by [G]rep' })
+      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
+      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
@@ -549,17 +496,6 @@ require('lazy').setup({
           },
         },
       }
-
-      -- Meta LSP setup
-      for _, lsp in ipairs {
-        'cppls@meta',
-        'buckls@meta',
-        'lua_ls',
-      } do
-        require('lspconfig')[lsp].setup {
-          on_attach = nil,
-        }
-      end
     end,
   },
 
@@ -823,7 +759,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  { import = 'custom.plugins' },
+  -- { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

@@ -1,59 +1,8 @@
 # restart skhd
 alt - r : skhd --restart-service
-shift + alt - r : yabai --restart-service
-shift + alt - k : yabai --stop-service
-shift + alt - s : yabai --start-service
 
-# focus window
-alt - h : yabai -m window --focus west
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-alt - l : yabai -m window --focus east
-
-# balance size of windows
-shift + alt - 0 : yabai -m space --balance
-
-# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-shift + cmd - n : yabai -m space --create && \
-                  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
-                  yabai -m window --space "${index}" && \
-                  yabai -m space --focus "${index}"
-
-# create desktop, and follow focus - uses jq for parsing json (brew install jq)
-shift + cmd + alt - n : yabai -m space --create && \
-                  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
-                  yabai -m space --focus "${index}"
-
-# fast focus desktop
-alt - x : yabai -m space --focus recent
-alt - 1 : yabai -m space --focus 1
-alt - 2 : yabai -m space --focus 2
-alt - 3 : yabai -m space --focus 3
-alt - 4 : yabai -m space --focus 4
-alt - 5 : yabai -m space --focus 5
-alt - 6 : yabai -m space --focus 6
-alt - 7 : yabai -m space --focus 7
-alt - 8 : yabai -m space --focus 8
-alt - 9 : yabai -m space --focus 9
-
-# kill all empty spaces except for focused
-alt - c : yabai -m space --destroy
-alt + shift - c : sh ~/.config/yabai/scripts/cleanEmptySpaces.sh
-
-# send window to desktop and follow focus
-shift + cmd - z : yabai -m window --space next; yabai -m space --focus next
-shift + cmd - 1 : yabai -m window --space  1; yabai -m space --focus 1
-shift + cmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
-shift + cmd - 3 : yabai -m window --space  3; yabai -m space --focus 3
-shift + cmd - 4 : yabai -m window --space  4; yabai -m space --focus 4
-shift + cmd - 5 : yabai -m window --space  5; yabai -m space --focus 5
-shift + cmd - 6 : yabai -m window --space  6; yabai -m space --focus 6
-shift + cmd - 7 : yabai -m window --space  7; yabai -m space --focus 7
-shift + cmd - 8 : yabai -m window --space  8; yabai -m space --focus 8
-shift + cmd - 9 : yabai -m window --space  9; yabai -m space --focus 9
-
-# float / unfloat window and center on screen
-alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
-
-# toggle sticky(+float), topmost, picture-in-picture
-alt - p : yabai -m window --toggle sticky --toggle topmost --toggle pip
+# app quick switcher
+ralt - t : open -a "/Applications/iTerm.app"
+ralt - b : open -a "/Applications/Google Chrome.app"
+ralt - w : open -a "/Applications/Notes.app"
+ralt - h : open ~/
